@@ -151,7 +151,7 @@ export default function Home() {
         <div className="mt-40 rounded-2xl bg-zinc-900 p-8">
           <div className="grid gap-y-8 sm:grid-cols-3">
             {[
-              { value: "100K+", label: "Reports Filed" },
+              { value: "50K+", label: "Reports Filed" },
               { value: "100%", label: "Anonymity Rate" },
               { value: "24/7", label: "Support Available" },
             ].map((stat, i) => (

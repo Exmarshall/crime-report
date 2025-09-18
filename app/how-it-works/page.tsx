@@ -40,18 +40,8 @@ export default function HowItWorks() {
     ];
 
     return (
-        <div className="min-h-screen bg-black text-white">
-            {/* Navbar */}
-            <nav className="border-b border-neutral-800 bg-black/50 backdrop-blur-xl sticky top-0 z-50">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-                    <div className="flex justify-between items-center">
-                        <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
-                            How It Works
-                        </h1>
-                    </div>
-                </div>
-            </nav>
-
+        <div className="min-h-screen bg-black text-white ">
+            
             {/* Hero Section */}
             <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 grid md:grid-cols-2 gap-12 items-center">
                 <div>
@@ -114,12 +104,13 @@ export default function HowItWorks() {
             <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 grid md:grid-cols-2 gap-12 items-center">
                 <div className="flex justify-center order-2 md:order-1">
                     <Image
-                        src="/how-it-works-illustration.png"
+                        src={'/app/images/report-illustration.png'}
                         alt="Security Illustration"
                         width={450}
                         height={300}
                         className="rounded-lg border border-neutral-800 shadow-lg object-cover"
                     />
+                   
                 </div>
                 <div className="order-1 md:order-2">
                     <h3 className="text-3xl font-bold mb-4">

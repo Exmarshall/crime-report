@@ -38,14 +38,8 @@ const emergencyContacts = [
 export default function HelpCenter() {
     return (
         <div className="min-h-screen bg-black text-white">
-            {/* Navbar */}
-            <nav className="border-b border-neutral-800 bg-black/50 backdrop-blur-xl sticky top-0 z-50">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-                    <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
-                        Help Center
-                    </h1>
-                </div>
-            </nav>
+            
+         
 
             {/* Main Content */}
             <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">

@@ -3,7 +3,7 @@ export default function Footer() {
         <footer className="border-t border-white/5 bg-black/80 backdrop-blur-xl mt-10">
             <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center text-sm text-zinc-400">
                 {/* Left */}
-                <p>© {new Date().getFullYear()} Crime Watch. All rights reserved.</p>
+                <p>© {new Date().getFullYear()} All rights reserved .  Divine Favour</p>
 
                 {/* Right */}
                 <div className="flex space-x-6 mt-4 md:mt-0">

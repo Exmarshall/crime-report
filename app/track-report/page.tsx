@@ -1,4 +1,4 @@
-"use client";
+"use client"; // 👈 forces client-side rendering
 import { ReportTracker } from "@/components/report/ReportTracker";
 
 export default function TrackReportPage() {

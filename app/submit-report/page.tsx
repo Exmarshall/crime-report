@@ -1,6 +1,13 @@
-"use client"; // 👈 This forces client-side rendering
+"use client"; // 👈 Force client-side rendering
 
-import { ReportWizard } from "@/components/report/ReportWizard";
+import dynamic from "next/dynamic";
+
+// ✅ Dynamically import the named export ReportWizard
+const ReportWizard = dynamic(
+  () =>
+    import("@/components/report/ReportWizard").then((mod) => mod.ReportWizard),
+  { ssr: false }
+);
 
 export default function SubmitReport() {
   return (

@@ -4,15 +4,24 @@ import { useState } from "react";
 import { ReportForm } from "./ReportForm";
 import { ReportSubmitted } from "./ReportFormCompleted";
 
-export function ReportWizard() {
-  const [currentStep, setCurrentStep] = useState(1);
-  const [reportData, setReportData] = useState<any>(null);
+// ✅ Define the shape of your report data
+interface ReportData {
+  incidentType?: string;
+  location?: string;
+  description?: string;
+  evidence?: string;
+  [key: string]: any; // keep it flexible if more fields will be added
+}
 
-  const handleStepComplete = async (data: any) => {
-    setReportData({ ...reportData, ...data });
+export function ReportWizard() {
+  const [currentStep, setCurrentStep] = useState<number>(1);
+  const [reportData, setReportData] = useState<ReportData>({});
+
+  const handleStepComplete = async (data: ReportData) => {
+    setReportData((prev) => ({ ...prev, ...data }));
 
     if (currentStep === 4) {
-      return;
+      return; // stop at last step
     }
 
     setCurrentStep((prev) => prev + 1);

@@ -1,3 +1,4 @@
+"use client";  // 👈 forces client-side rendering
 import Link from "next/link";
 
 interface MobileMenuProps {

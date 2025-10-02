@@ -1,3 +1,5 @@
+"use client"; // 👈 This forces client-side rendering
+
 import { ReportWizard } from "@/components/report/ReportWizard";
 
 export default function SubmitReport() {

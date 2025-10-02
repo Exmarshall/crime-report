@@ -1,16 +1,25 @@
 "use client";
 
-import { signIn } from "next-auth/react";
-import { useState } from "react";
+import { signIn, useSession } from "next-auth/react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 export default function SignIn() {
   const router = useRouter();
+  const { data: session, status } = useSession();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+
+  // Redirect if already authenticated
+  useEffect(() => {
+    if (status === "authenticated") {
+      router.push("/dashboard");
+    }
+  }, [status]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,15 +35,23 @@ export default function SignIn() {
 
       if (result?.error) {
         setError("Invalid credentials");
-      } else {
-        router.push("/dashboard");
       }
-    } catch (error) {
+      // Successful sign-in handled by useEffect
+    } catch (err) {
       setError("An error occurred during sign in");
     } finally {
       setIsLoading(false);
     }
   };
+
+  if (status === "loading") {
+    // Show spinner or loading state while session is being checked
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-black">
+        <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin" />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-black flex flex-col justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -115,7 +132,6 @@ export default function SignIn() {
             </div>
           </form>
 
-          {/* ✅ Added Sign Up Link */}
           <p className="mt-6 text-center text-sm text-neutral-400">
             Don&apos;t have an account?{" "}
             <Link
